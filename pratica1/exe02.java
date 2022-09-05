@@ -1,3 +1,4 @@
+package pratica1;
 import java.util.*;
 
 class exe02 {
