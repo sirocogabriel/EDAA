@@ -69,7 +69,7 @@ class exe03 {
     static void ConsumoPorDistancia (ArrayList<Carro> carros) {
         System.out.print("\nDigite a distância percorrida: ");
         Scanner s = new Scanner(System.in);
-        var dist = s.nextFloat();
+        float dist = s.nextFloat();
 
         System.out.print("\nLitros gastos: ");
 
