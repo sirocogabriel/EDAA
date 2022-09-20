@@ -5,63 +5,64 @@ public class exeListas {
     public static void main(String[] args) {
 
         int op = 0;
-        Scanner s = new Scanner(System.in);
         Carrinho carrinho = new Carrinho();
 
         while (op != 5) {
-            s = new Scanner(System.in);
-            System.out.println("Digite uma opção para a lista do Gabriel :)\n");
+            try (Scanner s = new Scanner(System.in)) {
+                System.out.println("Digite uma opção para a lista do Gabriel :)\n");
 
-            System.out.println("(1) Adicionar");
-            System.out.println("(2) Remover");
-            System.out.println("(3) Checar Vazio");
-            System.out.println("(4) Mostrar Carrinho");
-            System.out.println("(5) Sair\n");
+                System.out.println("(1) Adicionar");
+                System.out.println("(2) Remover");
+                System.out.println("(3) Checar Vazio");
+                System.out.println("(4) Mostrar Carrinho");
+                System.out.println("(5) Sair\n");
 
-            op = s.nextInt();
+                op = s.nextInt();
 
-            if (op == 1) {
+                if (op == 1) {
 
-                s = new Scanner(System.in);
-                Produto produto = new Produto();
+                    try (Scanner s2 = new Scanner(System.in)) {
+                        Produto produto = new Produto();
+                        
+                        System.out.println("\nInsira o nome do Produto: ");
+                        produto.nomeSet(s2.nextLine());
+
+                        System.out.println("Insira a descrição do Produto: ");
+                        produto.descricaoSet(s2.nextLine());
+
+                        System.out.println("Insira a quantidade de Produto: ");
+                        produto.quantSet(s2.nextInt());
+
+                        System.out.println("Insira o Valor do Produto: ");
+                        produto.valorTotalSet(s2.nextFloat());
+
+                        carrinho.Inserir(produto);
+                    }
+                }else if(op == 2){
+                    System.out.print("\nDigite a posição do produto: ");
+                    int pos = s.nextInt();
+                    carrinho.Remover(pos);
+                }else if(op == 3){
+                    if(carrinho.Vazio()){
+                        System.out.println("\nO Carrinho está vazio :)\n");
+                    }else {
+                        System.out.println("\nO Carrinho tem produtos\n");
+                    }
+                }else if(op == 4){
+                    int i = 0;
+
+                    while(i < carrinho.ultimoGet()){
+                        Produto produtoView = carrinho.produtosGet(i);
+                        System.out.println(produtoView.nomeGet());
+                        System.out.println(produtoView.descricaoGet());
+                        System.out.println(produtoView.quantGet());
+                        System.out.println(produtoView.valorTotalGet() + "\n");
+                        i++;
+                    }
                 
-                System.out.println("\nInsira o nome do Produto: ");
-                produto.nomeSet(s.nextLine());
-
-                System.out.println("Insira a descrição do Produto: ");
-                produto.descricaoSet(s.nextLine());
-
-                System.out.println("Insira a quantidade de Produto: ");
-                produto.quantSet(s.nextInt());
-
-                System.out.println("Insira o Valor do Produto: ");
-                produto.valorTotalSet(s.nextFloat());
-
-                carrinho.Inserir(produto);
-            }else if(op == 2){
-                System.out.print("\nDigite a posição do produto: ");
-                int pos = s.nextInt();
-                carrinho.Remover(pos);
-            }else if(op == 3){
-                if(carrinho.Vazio()){
-                    System.out.println("\nO Carrinho está vazio :)\n");
                 }else {
-                    System.out.println("\nO Carrinho tem produtos\n");
+                    op = 5;
                 }
-            }else if(op == 4){
-                int i = 0;
-
-                while(i < carrinho.ultimoGet()){
-                    Produto produtoView = carrinho.produtosGet(i);
-                    System.out.println(produtoView.nomeGet());
-                    System.out.println(produtoView.descricaoGet());
-                    System.out.println(produtoView.quantGet());
-                    System.out.println(produtoView.valorTotalGet() + "\n");
-                    i++;
-                }
-            
-            }else {
-                op = 5;
             }
 
         }
