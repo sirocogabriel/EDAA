@@ -38,17 +38,23 @@ public class exeListas {
 
                         carrinho.Inserir(produto);
                     }
+                    
                 }else if(op == 2){
+
                     System.out.print("\nDigite a posição do produto: ");
                     int pos = s.nextInt();
                     carrinho.Remover(pos);
+
                 }else if(op == 3){
+
                     if(carrinho.Vazio()){
                         System.out.println("\nO Carrinho está vazio :)\n");
                     }else {
                         System.out.println("\nO Carrinho tem produtos\n");
                     }
+
                 }else if(op == 4){
+
                     int i = 0;
 
                     while(i < carrinho.ultimoGet()){
