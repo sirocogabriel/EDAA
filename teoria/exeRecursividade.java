@@ -1,3 +1,4 @@
+package teoria;
 import java.util.Scanner;
 
 public class exeRecursividade {
@@ -13,7 +14,8 @@ public class exeRecursividade {
     public static int SomaRecursiva (int num, int soma) {
         if(num == 0) {
             return soma;
-        }else {
+        }
+        else {
             soma += num;
             num--;
             return SomaRecursiva(num, soma);

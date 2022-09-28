@@ -1,4 +1,4 @@
-package pratica1;
+package pratica.pratica1;
 public class exe01 {
     
     public static void main(String[] args) {
