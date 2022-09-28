@@ -1,4 +1,4 @@
-package pratica.pratica1;
+package pratica;
 import java.util.Scanner;
 
 public class exeListas {
