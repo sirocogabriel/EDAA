@@ -1,4 +1,4 @@
-package pratica.pratica1;
+package pratica.lista1;
 import java.util.*;
 
 class exe03 {
